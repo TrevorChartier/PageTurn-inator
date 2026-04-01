@@ -7,7 +7,7 @@ from camera import Camera
 from wink_detector import WinkDetector
 from servo_worker_thread import ServoWorkerThread
 from logger import Logger
-from visualize import visualize
+from visualize import Visualize
 import time
 from collections import deque
 
@@ -17,6 +17,7 @@ class Main:
         self.__camera = Camera()
         self.__wink_detector = WinkDetector()
         self.__logger = Logger("logs/log_video.mp4")
+        self.__visualizer = Visualize()
         
         self.__CONSECUTIVE_WINK_THRESHOLD = 14
         self.__wink_buff = deque(
@@ -53,19 +54,21 @@ class Main:
             self.__wink_buff.append(wink)
             
             if all(x == self.__wink_detector.LEFT_WINK for x in self.__wink_buff):
-                print("Left Wink Detected")
+                self.__visualizer.log_left_wink()
                 if last_request != RIGHT_REQUEST:
                     self.__servo_request_queue.put(RIGHT_REQUEST)
                     last_request = RIGHT_REQUEST
                 
             elif all(x == self.__wink_detector.RIGHT_WINK for x in self.__wink_buff):
-                print("Right Wink Detected")
+                self.__visualizer.log_right_wink()
                 if last_request != LEFT_REQUEST:
                     self.__servo_request_queue.put(LEFT_REQUEST)
                     last_request = LEFT_REQUEST
-            
+            else:
+                wink_text = ""
+
             face_landmarks = self.__wink_detector.get_face_landmarks()
-            logging_frame = visualize(frame, face_landmarks)
+            logging_frame = self.__visualizer.visualize(frame, face_landmarks)
             self.__logger.write(logging_frame)
 
 if __name__ == "__main__":

@@ -67,7 +67,7 @@ class WinkDetector:
         left_ear = self.__eye_aspect_ratio(left_eye_landmarks, frame_width, frame_height)
         right_ear = self.__eye_aspect_ratio(right_eye_landmarks, frame_width, frame_height)
 
-        EAR_THRESHOLD = 0.2  
+        EAR_THRESHOLD = 0.18
         if left_ear < EAR_THRESHOLD and right_ear >= EAR_THRESHOLD:
             return self.LEFT_WINK
         elif right_ear < EAR_THRESHOLD and left_ear >= EAR_THRESHOLD:
