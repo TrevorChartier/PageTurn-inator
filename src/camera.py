@@ -27,7 +27,7 @@ class Camera:
         Returns: 
             np.ndarray: Copy of latest frame as a numpy array in RGB
         """
-        return self.__camera.capture_array()[:, :, ::-1].copy()
+        return self.__camera.capture_array()[:, :, ::].copy()
     
     def cleanup(self):
         self.__camera.stop()

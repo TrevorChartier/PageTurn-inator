@@ -15,6 +15,7 @@ class WinkDetector:
             running_mode=VisionRunningMode.IMAGE
         )
 
+        self.__current_face_landmarks = None
         self.NO_WINK = 0
         self.LEFT_WINK = 1
         self.RIGHT_WINK = 2
@@ -32,14 +33,18 @@ class WinkDetector:
         face_landmarker_result = self.__detector.detect(mp_image)
         
         if face_landmarker_result.face_landmarks:
+            self.__current_face_landmarks = face_landmarker_result.face_landmarks
             return self.__detect_wink(
                 face_landmarker_result.face_landmarks[0],
                 frame.shape[1], frame.shape[0]
                 )
         else:
             # No Face Detected in Frame
+            self.__current_face_landmarks = None
             return  self.NO_WINK
 
+    def get_face_landmarks(self):
+        return self.__current_face_landmarks
         
     def __eye_aspect_ratio(self, eye_landmarks, frame_width, frame_height):
         eye_pts = np.array([[lm.x * frame_width, lm.y * frame_height] for lm in eye_landmarks])
