@@ -1,12 +1,3 @@
-"""Provides the CameraManager class for capturing frames from the 
-PiCamera.
-
-Usage:
-        camera = CameraManager()
-        frame = camera.get_latest_frame()
-"""
-
-
 from picamera2 import Picamera2
 import numpy as np
 
