@@ -40,3 +40,8 @@ Currently, the system is limited to a single bi-directional page turn (supportin
 * `camera.py` & `logger.py`: Video capture and debug logging.
 
 * `visualize.py`: OpenCV utilities for drawing facial meshes and system states.
+
+
+---
+![Untitled drawing](https://github.com/user-attachments/assets/ef2e36fe-8692-4f69-b25b-76cd9479c6d5)
+
