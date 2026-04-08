@@ -3,7 +3,7 @@ A hands-free, wink-activated robotic page turner for sheet music, built from scr
 
 https://github.com/user-attachments/assets/7b45f7c9-d103-4e64-a657-9321ef7d5e90
 
-Watch the full video demo video here: https://youtu.be/mPjq7NNFP7Y
+Watch the full video demo video here: https://youtu.be/-8U9OchkvYs
 ## Problem Statement
 
 The idea for this project came about as I was practicing a new piano piece, and I became annoyed with having to stop playing mid-song to turn 
