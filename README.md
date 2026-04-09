@@ -9,7 +9,7 @@ Watch the full video demo video here: https://youtu.be/-8U9OchkvYs
 The idea for this project came about as I was practicing a new piano piece, and I became annoyed with having to stop playing mid-song to turn 
 the page. I didn't want  to memorize the piece, so I decided to engineer a completely hands-free way to turn the sheet music while playing.
 
-Once I came up with the idea, I challenged myself to completea full working prototype, including the physical build and software, in under 12-hours. This was a success (barely!), and I later expanded the software to include a visualization and logging pipeline to record the system in action.
+Once I came up with the idea, I challenged myself to complete a full working prototype, including the physical build and software, in under 12-hours. This was a success (barely!), and I later expanded the software to include a visualization and logging pipeline to record the system in action.
 
 ## Technical Highlights
 To make the system responsive and reliable, I had to solve a few specific engineering challenges:
